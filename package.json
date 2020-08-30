@@ -1,14 +1,20 @@
 {
-  "name": "elm-starter",
+  "name": "elm-calculator",
   "version": "1.0.0",
-  "description": "An elm starter template repository",
+  "description": "An RPN calculator in elm",
   "keywords": [
     "elm",
-    "template repository"
+    "tutorial"
   ],
-  "author": "Ryan Frazier",
+  "author": "Chema Cortés",
   "license": "MIT",
   "devDependencies": {
-    "elm-live": "^4.0.1"
+    "elm-live": "^4.0.2",
+    "elm-test": "^0.19.1-revision2",
+    "uglifyjs": "^2.4.11"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && elm make src/Main.elm --optimize --output=elm.js && npm run optimize && cp elm.min.js dist && cp index.html dist && cp style.css dist",
+    "optimize": "uglifyjs elm.js --compress 'pure_funcs=\"F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9\",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output elm.min.js"
   }
 }
