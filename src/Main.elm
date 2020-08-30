@@ -310,6 +310,7 @@ type Color
     = Yellow
     | Gray
     | White
+    | Red
 
 
 colorToString : Color -> String
@@ -323,6 +324,9 @@ colorToString color =
 
         White ->
             "bg-white"
+
+        Red ->
+            "bg-red"
 
 
 view : Model -> Browser.Document Msg
@@ -356,8 +360,8 @@ section : Html Msg
 section =
     div [ class "section" ]
         [ cell (onClick Back) Single Gray "←"
-        , cell (onClick Clear) Single Gray "C"
-        , cell (onClick ClearAll) Single Gray "CE"
+        , cell (onClick ClearAll) Single Red "C"
+        , cell (onClick Clear) Single Gray "CE"
         , cellOp Div
         , cell (onClick <| InputNumber 7) Single White "7"
         , cell (onClick <| InputNumber 8) Single White "8"

@@ -21,6 +21,10 @@ body {
     background-color: #ffd90b;
 }
 
+.bg-red {
+    background-color: #b65151;
+}
+
 .calculator {
     max-width: 25em;
     margin: auto;
