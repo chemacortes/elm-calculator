@@ -151,20 +151,24 @@ update msg model =
                 )
 
         Back ->
-            let
-                newNum =
-                    String.dropRight 1 model.currentNum
-            in
-            ( { model
-                | currentNum =
-                    if String.length newNum > 0 then
-                        newNum
+            if model.dirty then
+                update Clear model
 
-                    else
-                        "0"
-              }
-            , Cmd.none
-            )
+            else
+                let
+                    newNum =
+                        String.dropRight 1 model.currentNum
+                in
+                ( { model
+                    | currentNum =
+                        if String.length newNum > 0 then
+                            newNum
+
+                        else
+                            "0"
+                  }
+                , Cmd.none
+                )
 
         SetDecimal ->
             if String.contains "." model.currentNum then
