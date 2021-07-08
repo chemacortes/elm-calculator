@@ -10,7 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "elm": "^0.19.1-5",
-    "elm-live": "^4.0.2",
+    "elm-live": "github:wking-io/elm-live",
     "elm-test": "^0.19.1-revision7",
     "uglify-js": "^3.13.10"
   },
